@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <None Update="UB2017.pdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="ub2017egyeni.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
