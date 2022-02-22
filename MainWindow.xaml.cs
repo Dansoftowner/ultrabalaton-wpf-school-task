@@ -20,6 +20,11 @@ namespace Ultrabalaton
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private const string FilePath = "ub2017egyeni.txt";
+
+        private readonly Players players = new Players(FilePath);
+
         public MainWindow()
         {
             InitializeComponent();

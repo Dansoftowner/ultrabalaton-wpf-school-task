@@ -10,10 +10,10 @@ namespace Ultrabalaton
         public string Name { get; set; }
         public int Number { get; set; }
         public string Category { get; set; }
-        public DateTime AccomplishedTime { get; set; }
+        public TimeSpan AccomplishedTime { get; set; }
         public int FinishRate { get; set; }
 
-        public Player(string name, int number, string category, DateTime accomplishedTime, int finishRate)
+        public Player(string name, int number, string category, TimeSpan accomplishedTime, int finishRate)
         {
             Name = name;
             Number = number;

@@ -25,12 +25,18 @@ namespace Ultrabalaton
                     it[0],
                     int.Parse(it[1]),
                     it[2],
-                    DateTime.ParseExact(it[3], "hh:mm:ss", CultureInfo.InvariantCulture),
+                    ParseTimeSpan(it[3]),
                     int.Parse(it[4]))
                 ).ToList()
         )
         {
 
+        }
+
+        private static TimeSpan ParseTimeSpan(string input)
+        {
+            var parts = input.Split(":").Select(int.Parse).ToList();
+            return new TimeSpan(parts[0], parts[1], parts[2]);
         }
     }
 }
