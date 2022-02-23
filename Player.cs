@@ -21,5 +21,10 @@ namespace Ultrabalaton
             AccomplishedTime = accomplishedTime;
             FinishRate = finishRate;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

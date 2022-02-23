@@ -8,15 +8,18 @@
         Title="MainWindow" Height="450" Width="800">
     <Canvas Margin="0,0,0,-34">
         <Label FontSize="15" Content="Egyéni indulók száma:" Canvas.Left="26" Canvas.Top="33"/>
-        <Label x:Name="UniquePlayersLabel" FontSize="15" Content="" Canvas.Left="187" Canvas.Top="33"/>
+        <Label x:Name="PlayersCountLabel" FontSize="15" Content="" Canvas.Left="187" Canvas.Top="33"/>
         <Label FontSize="15" Content="Sportoló neve:" Canvas.Left="26" Canvas.Top="68"/>
         <Label FontSize="15" Content="Kategória:" Canvas.Left="27" Canvas.Top="133"/>
         <Label FontSize="15" Content="A kategóriában indult versenyzők:" Canvas.Left="93" Canvas.Top="187"/>
         <TextBox x:Name="PlayerNameField" FontSize="15" Canvas.Left="132" Canvas.Top="72" Text="" TextWrapping="Wrap" Width="120"/>
-        <Button FontSize="15" Content="Keres" Canvas.Left="257" Canvas.Top="71" Width="59"/>
-        <ComboBox x:Name="CategoryCombo" FontSize="15" Canvas.Left="108" Canvas.Top="135" Width="120"/>
-        <ListBox Height="128" Width="212" Canvas.Left="104" Canvas.Top="222"/>
-        <Button FontSize="15" Content="Célba ért versenyzők mentése fájlba" Canvas.Left="104" Canvas.Top="387" Width="255"/>
+        <Label x:Name="SearchResultLabel" FontSize="15" FontWeight="Bold" Content="" Canvas.Left="108" Canvas.Top="100"/>
+        <Button FontSize="15" Content="Keres" Canvas.Left="257" Canvas.Top="71" Width="59" Click="SearchPlayer"/>
+        <ComboBox x:Name="CategoryCombo" FontSize="15" Canvas.Left="108" Canvas.Top="135" Width="120" SelectionChanged="CategorySelection"/>
+        <ListBox FontSize="15" Height="128" Width="212" Canvas.Left="104" Canvas.Top="222" x:Name="CategoryPlayersListView"/>
+        <Label x:Name="FinishedPlayerCountLabel" FontWeight="Bold" FontSize="15" Content="" Canvas.Left="104" Canvas.Top="355"/>
+        <Label x:Name="WinnerPlayerLabel" FontWeight="Bold" FontSize="15" Content="" Canvas.Left="104" Canvas.Top="384"/>
+        <Button FontSize="15" Content="Célba ért versenyzők mentése fájlba" Canvas.Left="104" Canvas.Top="419" Width="255" Click="WriteToFile"/>
 
     </Canvas>
 </Window>

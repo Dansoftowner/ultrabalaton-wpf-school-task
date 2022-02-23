@@ -12,6 +12,9 @@ namespace Ultrabalaton
 
         private List<Player> PlayerList;
 
+        public int PlayersCount => PlayerList.Count();
+        public List<string> UniqueCategories => PlayerList.Select(it => it.Category).Distinct().ToList();
+
         public Players(List<Player> playerList)
         {
             PlayerList = playerList;
@@ -32,6 +35,18 @@ namespace Ultrabalaton
         {
 
         }
+
+        public Player GetByName(string name) => PlayerList.Where(it => it.Name == name).FirstOrDefault();
+
+        public List<Player> GetByCategory(string category) => PlayerList.Where(it => it.Category == category).ToList();
+
+        public List<Player> FinishedPlayersInCategory(string category) => GetByCategory(category).Where(it => it.FinishRate == 100).ToList();
+
+        public int FinishedCountInCategory(string category) => FinishedPlayersInCategory(category).Count();
+
+        public Player WinnerInCategory(string category) => GetByCategory(category)
+            .Where(it => it.FinishRate == 100)
+            .Aggregate((l, r) => l.AccomplishedTime < r.AccomplishedTime ? l : r);
 
         private static TimeSpan ParseTimeSpan(string input)
         {
