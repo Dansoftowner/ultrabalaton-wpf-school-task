@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,7 +69,16 @@ namespace Ultrabalaton
 
         private void WriteToFile(object sender, RoutedEventArgs e)
         {
+            var categoryName = (string)CategoryCombo.SelectedItem;
 
+            using(StreamWriter writer = new StreamWriter($"{categoryName}.txt"))
+            {
+                foreach(var player in players.FinishedPlayersInCategory(categoryName))
+                {
+                    writer.WriteLine(string.Join(";", player.Name, player.AccomplishedTime));
+                }
+            }
+            MessageBox.Show("A fájl elkészült!");
         }
     }
 }
